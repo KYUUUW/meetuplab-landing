@@ -1,18 +1,17 @@
 {
   "company": {
-    "name": "React landing page 2021",
-    "logo": "/assets/images/logo.png"
+    "name": "Meet Up Lab",
+    "logo": "/assets/images/logo-draft.png"
   },
   "navigation": [
     {
-      "name": "Product",
-      "href": "product"
+      "name": "Introduction",
+      "href": "intro"
     },
     {
       "name": "Features",
       "href": "features"
     },
-
     {
       "name": "Pricing",
       "href": "pricing"
@@ -23,67 +22,67 @@
     }
   ],
   "callToAction": {
-    "text": "Get started",
-    "href": "#"
+    "text": "참가하기",
+    "href": "https://forms.gle/2WyjZ1WmxSfiviVF9"
   },
   "mainHero": {
-    "title": "Use me as your",
-    "subtitle": "landing page.",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+    "title": "Designer and Developer Blender",
+    "subtitle": "Meet Up",
+    "description": "개발자 부터 디자이너, 마케터, VC까지, 다양한 분야에서 진정성을 지닌 전문가들이 서로를 만나고 소통하는 네트워킹 밋업입니다.",
     "img": "/assets/images/happyTeam.jpeg",
     "primaryAction": {
-      "text": "Get started",
-      "href": "#"
+      "text": "참가하기",
+      "href": "https://forms.gle/2WyjZ1WmxSfiviVF9"
     },
     "secondaryAction": {
-      "text": "Email us",
-      "href": "mailto:issaafakattan@gmail.com?subject=I like react landing page!"
+      "text": "문의하기",
+      "href": "mailto:jangjaeko45@gmail.com?subject=[밋업랩]문의하기"
     }
   },
   "product": {
-    "title": "React landing page 2021",
+    "title": "밋업랩 이란?",
     "items": [
       {
-        "title": "A plug n play template",
-        "description": "Just edit the config.json file with details about your company and voila your beautiful state of the art landing page is ready to go live! Remember to also update your assets, add any images you want to show to /assets/images and link them in the config.json",
+        "title": "디자이너와 개발자의 창조적인 협업",
+        "description": "디자이너와 개발자의 만남, 창조의 새로운 시작입니다. 이곳에서는 아이디어가 현실로 펼쳐지는 무대가 됩니다. 디자인의 창의성과 기술의 혁신이 결합하여 전에 없던 작품이 탄생합니다. 디자이너와 개발자가 손을 잡고 협업하는 이 장소에서 새로운 미래를 만나보세요. 우리는 단순한 협업을 넘어, 함께 성장하고, 함께 창조하는 커뮤니티를 지향합니다.",
         "img": "/assets/images/product1.jpg"
       },
       {
-        "title": "Make it your own!",
-        "description": "Play around with the theme.ts file and configure the color palette to match the branding of your company! If you're feeling wild, maybe change some tailwind css as well!",
+        "title": "다양한 분야의 열정있는 전문가의 모임",
+        "description": "다양한 분야의 전문가가 한 자리에서 교류합니다. 개발자부터 디자이너, 마케터, VC까지. 각자의 전문성을 존중하며 혁신적인 아이디어를 공유하는 플랫폼입니다. 단순한 만남이 아닌, 함께 발전하는 네트워킹의 장을 경험하세요.",
         "img": "/assets/images/product2.jpg"
       }
     ]
   },
   "features": {
-    "title": "Latest & greatest ",
-    "subtitle": "All the best technologies out there!",
+    "title": "밋업랩에서 하는 일들",
+    "subtitle": "밋업랩은 다양한 분야의 전문가들이 모여 Make Up 합니다",
     "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
     "items": [
       {
-        "name": "React.js",
-        "description": "React is a free and open-source front-end JavaScript library for building user interfaces or UI components.",
+        "name": "개발자 협업",
+        "description": "개발을 하다가 막히는 경우가 있었나요? 궁금한 점이 있는데 물어볼데가 없었던 경우가 있나요? 밋업랩에서 동료 개발자들을 찾아보세요. 동료와 함께하면 든든합니다.",
         "icon": "/assets/images/react.png"
       },
       {
-        "name": "Tailwind",
-        "description": "Tailwind CSS is a highly customizable, low-level CSS framework for quickly creating beautiful designs without any annoying opinionated stylesheet nonsense.",
+        "name": "아이디어 실현",
+        "description": "새로운 사업 아이디어가 있으신가요? 실현하고 싶은 사회 가치가 있으신가요? 밋업랩은 개발자와 디자이너의 모임입니다. 여기서는 뭐든지 만들어낼 수 있습니다.",
         "icon": "/assets/images/tailwindcss.svg"
       },
       {
-        "name": "Next.js",
-        "description": "Next.js is a framework for server-rendered React applications using Next.js.",
+        "name": "자유로운 만남",
+        "description": "밋업랩은 자유로운 네트워킹을 지향합니다. 여기서 새로운 사람을 많이 만나고 끈근한 연대의 힘을 만들어보세요.",
         "icon": "/assets/images/nextjs.svg"
       },
       {
-        "name": "Typescript",
-        "description": "TypeScript is a programming language developed and maintained by Microsoft.",
+        "name": "펀딩과 투자",
+        "description": "본인의 아이디어와 제품이 있으신가요? 밋업에서 투자해줄 엔젤, 액셀러레이터, VC 를 만나보세요.",
         "icon": "/assets/images/ts.png"
       }
     ]
   },
   "pricing": {
-    "title": "Pricing",
+    "title": "가입 비용",
     "items": [
       {
         "name": "Free",
@@ -124,22 +123,22 @@
   "about": {
     "sections": [
       {
-        "name": "Something",
+        "name": "Introduction",
         "href": "#",
         "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
       },
       {
-        "name": "Something",
+        "name": "Features",
         "href": "#",
         "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
       },
       {
-        "name": "Something",
+        "name": "Pricing",
         "href": "#",
         "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
       },
       {
-        "name": "Something",
+        "name": "About",
         "href": "#",
         "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
       }

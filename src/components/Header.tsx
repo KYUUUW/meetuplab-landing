@@ -62,7 +62,7 @@ const Menu = () => {
                 href="#"
                 className={`font-medium text-primary hover:text-secondary`}
               >
-                Call to action
+                밋업 참가하기
               </a>
             </div>
           </nav>
