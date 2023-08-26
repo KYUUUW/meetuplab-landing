@@ -39,9 +39,6 @@ const App = () => {
         </>
       </LazyShow>
       <LazyShow>
-        <Pricing />
-      </LazyShow>
-      <LazyShow>
         <>
           <Canvas />
           <About />
