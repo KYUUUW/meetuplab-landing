@@ -39,8 +39,8 @@ const App = () => {
       </LazyShow>
       <LazyShow>
         <>
-          <Canvas />
           <About />
+          <Canvas />
         </>
       </LazyShow>
       <Analytics />
