@@ -8,10 +8,7 @@ const Pricing = () => {
   const [firstPlan, secondPlan, thirdPlan] = items;
 
   return (
-    <div
-      id="pricing"
-      className="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 py-12"
-    >
+    <section className={`bg-background py-8`} id="pricing">
       <div className={`container mx-auto px-2 pt-4 pb-12 text-primary`}>
         <h1
           className={`w-full my-2 text-5xl font-bold leading-tight text-center text-primary`}
@@ -122,7 +119,7 @@ const Pricing = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
