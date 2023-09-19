@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link'; // Link 태그를 생성하여 다른 페이지 혹은 url로 이어지게 한다.
-import { useRouter } from 'next/router';
 
 import EventRawData from '../../../components/EventRawData';
 import PriceChart from '../../../components/PriceChart';
@@ -19,8 +18,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
 export default function EventPid() {
-  const router = useRouter();
-  const { pid } = router.query;
+  // const router = useRouter();
+  // const { pid } = router.query;
   const [TimeList, setTimeList] = useState([
     '2023-01',
     '2023-02',
@@ -35,6 +34,10 @@ export default function EventPid() {
     { name: '2차밋업', pid: '22' },
     { name: '3차밋업', pid: '33' },
   ]);
+  const temp = () => {
+    setRawDataList([{ name: '1차밋업', pid: '111' }]);
+    setTimeList(['2023-01']);
+  };
   return (
     <div style={{ padding: '5%' }}>
       <Link href={`/admin`}>
@@ -55,6 +58,7 @@ export default function EventPid() {
           <EventRawData RawDataList={RawDataList} />
         </div>
         {/* <FontAwesomeIcon icon={faPen} style={{ marginLeft: 10 }} /> */}
+        <span onClick={() => temp}>dont click</span>
       </div>
     </div>
   );
