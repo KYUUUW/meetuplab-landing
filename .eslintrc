@@ -14,11 +14,7 @@
     {
       "files": ["**/*.ts", "**/*.tsx"],
       "plugins": ["@typescript-eslint", "unused-imports"],
-      "extends": [
-        "airbnb-typescript",
-        "next/core-web-vitals",
-        "plugin:prettier/recommended"
-      ],
+      "extends": ["airbnb-typescript", "next", "plugin:prettier/recommended"],
       "parserOptions": {
         "project": "./tsconfig.json"
       },
