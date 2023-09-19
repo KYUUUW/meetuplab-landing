@@ -24,7 +24,7 @@ const Admin = () => {
   //   '3차밋업',
   // ]); // product 리스트를 받을 수 있는 리스트
   const temp = () => {
-    setEventList(['']);
+    setEventList([{ name: '1차밋업', pid: '111' }]);
   };
   return (
     <div>
