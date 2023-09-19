@@ -32,8 +32,8 @@ export default function EventPid() {
   ]);
   const [RawDataList, setRawDataList] = useState([
     { name: '1차밋업', pid: '111' },
-    { name: '2차밋업', pid: '222' },
-    { name: '3차밋업', pid: '333' },
+    { name: '2차밋업', pid: '22' },
+    { name: '3차밋업', pid: '33' },
   ]);
   return (
     <div style={{ padding: '5%' }}>
