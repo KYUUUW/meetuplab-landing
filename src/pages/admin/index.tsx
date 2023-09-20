@@ -23,9 +23,7 @@ const Admin = () => {
   //   '2차밋업',
   //   '3차밋업',
   // ]); // product 리스트를 받을 수 있는 리스트
-  const temp = () => {
-    setEventList([{ name: '1차밋업', pid: '111' }]);
-  };
+
   return (
     <div>
       <Link href={'/admin/AddEvent'}>
@@ -73,7 +71,6 @@ const Admin = () => {
           </>
         ))}
       </div> */}
-      <span onClick={() => temp()}>temp</span>
     </div>
   );
 };

@@ -34,10 +34,7 @@ export default function EventPid() {
     { name: '2차밋업', pid: '22' },
     { name: '3차밋업', pid: '33' },
   ]);
-  const temp = () => {
-    setRawDataList([{ name: '1차밋업', pid: '111' }]);
-    setTimeList(['2023-01']);
-  };
+
   return (
     <div style={{ padding: '5%' }}>
       <Link href={`/admin`}>
@@ -58,7 +55,6 @@ export default function EventPid() {
           <EventRawData RawDataList={RawDataList} />
         </div>
         {/* <FontAwesomeIcon icon={faPen} style={{ marginLeft: 10 }} /> */}
-        <span onClick={() => temp}>dont click</span>
       </div>
     </div>
   );
