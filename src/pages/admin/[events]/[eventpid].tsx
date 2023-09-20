@@ -34,10 +34,14 @@ export default function EventPid() {
     { name: '2차밋업', pid: '22' },
     { name: '3차밋업', pid: '33' },
   ]);
+  const [MaxPrice, setMaxPrice] = useState<number>(100000); // 최대가격
+  const [InventoryNumber, setInventoryNumber] = useState<number>(100); // 재고 수, 좌석 수
+  const [SalesEndTime, setSalesEndTime] = useState<string>(''); //
   const temp = () => {
     setRawDataList([{ name: '1차밋업', pid: '111' }]);
     setTimeList(['2023-01']);
   };
+
   return (
     <div style={{ padding: '5%' }}>
       <Link href={`/admin`}>
@@ -55,7 +59,15 @@ export default function EventPid() {
         </div>
         <div className="col-6">
           <span>Event Raw Data</span>
-          <EventRawData RawDataList={RawDataList} />
+          <EventRawData
+            RawDataList={RawDataList}
+            MaxPrice={MaxPrice}
+            setMaxPrice={setMaxPrice}
+            InventoryNumber={InventoryNumber}
+            setInventoryNumber={setInventoryNumber}
+            SalesEndTime={SalesEndTime}
+            setSalesEndTime={setSalesEndTime}
+          />
         </div>
         {/* <FontAwesomeIcon icon={faPen} style={{ marginLeft: 10 }} /> */}
         <span onClick={() => temp}>dont click</span>

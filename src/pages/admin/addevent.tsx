@@ -13,20 +13,25 @@ config.autoAddCss = false;
 export default function AddEvent() {
   const [EventName, setEventName] = useState<string>(''); // 이벤트 이름을 입력받는 변수
   const [FirstPrice, setFirstPrice] = useState<number>(0); // 최초 가격
-  const [LowestPrice, setLowesttPrice] = useState<number>(0); // 최소 가격
+  const [MinPrice, setMinPrice] = useState<number>(0); // 최소 가격
+  const [MaxPrice, setMaxPrice] = useState<number>(0); // 최대 가격
   const [InventoryNumber, setInventoryNumber] = useState<number>(0); // 재고 수, 좌석 수
   const [SalesStartTime, setSalesStartTime] = useState<string>(''); //
   const [SalesEndTime, setSalesEndTime] = useState<string>(''); //
   const router = useRouter();
   const SendEventInfo = () => {
-    alert(EventName + FirstPrice + LowestPrice + InventoryNumber);
+    alert(EventName + FirstPrice + MinPrice + InventoryNumber);
     router.push('/admin');
   };
 
   return (
-    <div className="d-flex justify-content-center ">
+    <div
+      className="d-flex justify-content-center"
+      style={{ paddingBottom: '5%' }}
+    >
       {/* 이벤트 이름 입력 받기 */}
-      <form style={{ marginTop: '10%' }} className="w-75">
+      <form style={{ marginTop: '5%' }} className="w-75">
+        <h1>Add Event/Product </h1>
         <div className="form-group ">
           <label htmlFor="exampleInputEmail1">Event Name(이벤트 이름)</label>
           <input
@@ -55,8 +60,19 @@ export default function AddEvent() {
             type="number"
             className="form-control"
             placeholder="Enter Event Name"
-            value={LowestPrice}
-            onChange={(e) => setLowesttPrice(e.target.valueAsNumber)}
+            value={MinPrice}
+            onChange={(e) => setMinPrice(e.target.valueAsNumber)}
+          />
+        </div>
+        {/* 이벤트 티켓 1개당 최고가격 설정 */}
+        <div className="form-group mt-5">
+          <label htmlFor="exampleInputEmail1">최대 가격</label>
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Enter Event Name"
+            value={MaxPrice}
+            onChange={(e) => setMaxPrice(e.target.valueAsNumber)}
           />
         </div>
         {/* 상품의 재고 혹은 좌석수  */}
