@@ -28,7 +28,7 @@ const Admin = () => {
   };
   return (
     <div>
-      <Link href={'/admin/AddEvent'}>
+      <Link href={'/admin/addevent'}>
         <div
           className="list-group-item list-group-item-action active w-50"
           style={{
@@ -51,7 +51,7 @@ const Admin = () => {
         </div>
         {EventList.map((item) => (
           <>
-            <Link href={`/admin/Events/${item.pid}`}>
+            <Link href={`/admin/events/${item.pid}`}>
               <a className="list-group-item list-group-item-action">
                 {item.name}{' '}
                 <FontAwesomeIcon icon={faPen} style={{ marginLeft: 10 }} />
