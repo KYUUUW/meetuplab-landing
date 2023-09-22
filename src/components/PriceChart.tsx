@@ -19,15 +19,19 @@ ChartJS.register(
   Tooltip
 );
 
-export default function PriceChart(props: any) {
+export default function PriceChart(props: {
+  timeList: Date[],
+  dataList: number[],
+}) {
+  console.log(props.timeList);
   return (
     <div>
       <Line
         data={{
-          labels: props.TimeList,
+          labels: props.timeList.map((time) => time.toString()),
           datasets: [
             {
-              data: [100, 120, 115, 134, 168, 132, 200],
+              data: props.dataList,
               backgroundColor: 'purple',
             },
           ],

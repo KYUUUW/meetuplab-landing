@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,29 +8,36 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import bootstrap CSS, 부트�
 import { config } from '@fortawesome/fontawesome-svg-core'; // icon을 사용하기 위해 font
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import AdminPassword from '../../components/AdminPassword';
+import axios from 'axios';
+import { serverUrl } from '../../const';
 // Admin 로그인 후 나올 첫 페이지
 
 config.autoAddCss = false;
 
 const Admin = () => {
-  const [EventList, setEventList] = useState([
-    { name: '1차밋업', pid: '111' },
-    { name: '2차밋업', pid: '222' },
-    { name: '3차밋업', pid: '333' },
-  ]); // 이벤트 리스트를 받을 수 있는 리스트예시, 클릭시 이름과 id 값을 가져와서 리스트 업하고, id에 맞춰 개별 페이지를 보여준다.
+  const [EventList, setEventList] = useState([]); // 이벤트 리스트를 받을 수 있는 리스트예시, 클릭시 이름과 id 값을 가져와서 리스트 업하고, id에 맞춰 개별 페이지를 보여준다.
   // const [ProductList, setProductList] = useState([
   //   '1차밋업',
   //   '2차밋업',
   //   '3차밋업',
   // ]); // product 리스트를 받을 수 있는 리스트
   const [Password, setPassword] = useState<boolean>(false);
-  const temp = () => {
-    setEventList([{ name: '1차밋업', pid: '111' }]);
-  };
+
+  useEffect(() => {
+    axios.get(`${serverUrl}/admin/events`).then((res) => {
+      const dtos = res.data;
+      const eventList = dtos.map((dto: any) => ({
+        name: dto.name,
+        pid: dto.id,
+      }));
+      setEventList(eventList);
+    });
+  }, [])
 
   return (
     <div>
-      {Password === true ? (
+      {/* {Password === true ? ( */}
+      {true ? (
         <>
           <Link href={'/admin/addevent'}>
             <div
