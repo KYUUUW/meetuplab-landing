@@ -47,22 +47,21 @@ export default function EventPid() {
     const { eventpid } = router.query;
 
     axios.get(`${serverUrl}/admin/events/${eventpid}`).then((res) => {
-      const { max_price, min_price, price, quantity, sold, start_price } =
-        res.data;
-      const event_date = new Date(res.data.event_date);
-      const ticket_open_date = new Date(res.data.ticket_open_date);
+      const { MaxPrice, minPrice, Quantity, Sold, startPrice } = res.data;
+      const EventDate = new Date(res.data.event_date);
+      const ticketOpenDate = new Date(res.data.ticket_open_date);
 
       setEventInfo({
-        start_price,
-        min_price,
-        quantity,
-        sold,
-        ticket_open_date,
+        start_price: startPrice,
+        min_price: minPrice,
+        quantity: Quantity,
+        sold: Sold,
+        ticket_open_date: ticketOpenDate,
       });
 
-      setMaxPrice(max_price);
+      setMaxPrice(MaxPrice);
       setSold(sold);
-      setEventDate(event_date);
+      setEventDate(EventDate);
     });
   };
 

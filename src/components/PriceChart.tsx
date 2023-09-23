@@ -20,8 +20,8 @@ ChartJS.register(
 );
 
 export default function PriceChart(props: {
-  timeList: Date[],
-  dataList: number[],
+  timeList: Date[];
+  dataList: number[];
 }) {
   console.log(props.timeList);
   return (

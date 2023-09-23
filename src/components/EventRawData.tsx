@@ -1,9 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import router from "next/router";
-import axios from "axios";
-import { serverUrl } from "../const";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function EventRawData(props: {
   eventInfo: any;
@@ -16,20 +13,20 @@ export default function EventRawData(props: {
 }) {
   console.log(props.maxPrice);
 
-  const sendEventInfo = () => {
-    const { eventpid } = router.query;
+  // const sendEventInfo = () => {
+  //   const { eventpid } = router.query;
 
-    axios
-      .patch(`${serverUrl}/admin/events/${eventpid}`, {
-        id: Number(eventpid),
-        max_price: props.maxPrice,
-        sold: props.sold,
-        event_date: props.eventDate.toISOString(),
-      })
-      .then((res) => {
-        alert("성공적으로 업데이트 되었습니다.");
-      });
-  };
+  //   axios
+  //     .patch(`${serverUrl}/admin/events/${eventpid}`, {
+  //       id: Number(eventpid),
+  //       max_price: props.maxPrice,
+  //       sold: props.sold,
+  //       event_date: props.eventDate.toISOString(),
+  //     })
+  //     .then((res) => {
+  //       alert("성공적으로 업데이트 되었습니다.");
+  //     });
+  // };
 
   return (
     <>
@@ -88,13 +85,12 @@ export default function EventRawData(props: {
                 type="datetime-local"
                 className="form-control"
                 value={props.eventDate.toISOString().slice(0, 16)}
-                onChange={(e) => props.setEventDate(new Date())}
+                onChange={() => props.setEventDate(new Date())}
               />
             </td>
           </tr>
         </tbody>
       </table>
-     
     </>
   );
 }

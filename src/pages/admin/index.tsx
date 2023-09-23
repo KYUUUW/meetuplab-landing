@@ -61,8 +61,8 @@ const Admin = () => {
             </div>
             {EventList.map((item) => (
               <>
-                <Link href={`/admin/events/${item.pid}`}>
-                  {item.name}{' '}
+                <Link href={`/admin/events/${(item as { pid: string }).pid}`}>
+                  {(item as { name: string }).name}{' '}
                   <FontAwesomeIcon icon={faPen} style={{ marginLeft: 10 }} />
                 </Link>
               </>
