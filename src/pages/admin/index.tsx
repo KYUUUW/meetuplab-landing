@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import Link from 'next/link'; // Link 태그를 생성하여 다른 페이지 혹은 url로 이어지게 한다.
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import bootstrap CSS, 부트스태랩을 글로벌하게 쓸 수 있도록 한다.
 // eslint-disable-next-line import/order
 import { config } from '@fortawesome/fontawesome-svg-core'; // icon을 사용하기 위해 font
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import AdminPassword from '../../components/AdminPassword';
-import axios from 'axios';
 import { serverUrl } from '../../const';
 // Admin 로그인 후 나올 첫 페이지
 
@@ -32,7 +32,7 @@ const Admin = () => {
       }));
       setEventList(eventList);
     });
-  }, [])
+  }, []);
 
   return (
     <div>
@@ -68,8 +68,6 @@ const Admin = () => {
               </>
             ))}
           </div>
-
-          <span onClick={() => temp()}>temp</span>
         </>
       ) : (
         <div>

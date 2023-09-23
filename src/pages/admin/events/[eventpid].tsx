@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link"; // Link 태그를 생성하여 다른 페이지 혹은 url로 이어지게 한다.
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import Link from 'next/link'; // Link 태그를 생성하여 다른 페이지 혹은 url로 이어지게 한다.
+import { useRouter } from 'next/router';
 
-import EventRawData from "../../../components/EventRawData";
-import PriceChart from "../../../components/PriceChart";
+import EventRawData from '../../../components/EventRawData';
+import PriceChart from '../../../components/PriceChart';
 
-import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS, 부트스태랩을 글로벌하게 쓸 수 있도록 한다.
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import bootstrap CSS, 부트스태랩을 글로벌하게 쓸 수 있도록 한다.
 // eslint-disable-next-line import/order
-import { config } from "@fortawesome/fontawesome-svg-core"; // icon을 사용하기 위해 font
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import router, { useRouter } from "next/router";
-import axios from "axios";
-import { serverUrl } from "../../../const";
-import { getEnvironmentData } from "worker_threads";
+import { config } from '@fortawesome/fontawesome-svg-core'; // icon을 사용하기 위해 font
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { serverUrl } from '../../../const';
+
 // eslint-disable-next-line import/order
 
 // Admin 로그인 후 나올 첫 페이지
@@ -29,16 +29,6 @@ export default function EventPid() {
   const [soldTimeList, setSoldTimeList] = useState<Date[]>([]);
   const [soldList, setSoldList] = useState<number[]>([]);
 
-  const [TimeList, setTimeList] = useState([
-    "2023-01",
-    "2023-02",
-    "2023-03",
-    "2023-04",
-    "2023-05",
-    "2023-06",
-    "2023-07",
-  ]);
-
   const [eventInfo, setEventInfo] = useState({
     start_price: 0,
     min_price: 0,
@@ -49,19 +39,6 @@ export default function EventPid() {
   const [maxPrice, setMaxPrice] = useState<number>(0); // 최대가격
   const [sold, setSold] = useState<number>(0); // 판매량
   const [eventDate, setEventDate] = useState<Date>(new Date()); // 이벤트 날짜
-
-  /**
-   * 현재의 이벤트 정보들을 가져온다.
-   */
-  useEffect(() => {
-    if (!router.isReady) {
-      return;
-    }
-
-    getEventInfo();
-    getPriceHistory();
-    getSoldHistory();
-  }, [router.isReady]);
 
   /**
    * 현재의 이벤트 정보들을 가져온다.
@@ -88,7 +65,6 @@ export default function EventPid() {
       setEventDate(event_date);
     });
   };
-
 
   /**
    * 가격 변동 내역을 불러온다.
@@ -139,12 +115,26 @@ export default function EventPid() {
       .then((res) => {
         getPriceHistory();
         getSoldHistory();
-        alert("성공적으로 업데이트 되었습니다.");
+        alert('성공적으로 업데이트 되었습니다.');
+        console.log(res);
       });
   };
 
+  /**
+   * 현재의 이벤트 정보들을 가져온다.
+   */
+  useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
+
+    getEventInfo();
+    getPriceHistory();
+    getSoldHistory();
+  }, [router.isReady]);
+
   return (
-    <div style={{ padding: "5%" }}>
+    <div style={{ padding: '5%' }}>
       <Link href={`/admin`}>
         <FontAwesomeIcon
           icon={faChevronLeft}

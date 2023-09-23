@@ -6,24 +6,51 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import bootstrap CSS, 부트�
 // eslint-disable-next-line import/order
 import { config } from '@fortawesome/fontawesome-svg-core'; // icon을 사용하기 위해 font
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import axios from 'axios';
 // Link 태그를 생성하여 다른 페이지 혹은 url로 이어지게 한다.
 import { useRouter } from 'next/router';
 
+import { serverUrl } from '../../const';
+
 config.autoAddCss = false;
 export default function AddEvent() {
-  const [EventName, setEventName] = useState<string>(''); // 이벤트 이름을 입력받는 변수
-  const [FirstPrice, setFirstPrice] = useState<number>(0); // 최초 가격
-  const [MinPrice, setMinPrice] = useState<number>(0); // 최소 가격
-  const [MaxPrice, setMaxPrice] = useState<number>(0); // 최대 가격
-  const [InventoryNumber, setInventoryNumber] = useState<number>(0); // 재고 수, 좌석 수
-  const [SalesStartTime, setSalesStartTime] = useState<string>(''); //
-  const [SalesEndTime, setSalesEndTime] = useState<string>(''); //
+  const [eventName, setEventName] = useState<string>(''); // 이벤트 이름을 입력받는 변수
+  const [startPrice, setStartPrice] = useState<number>(0); // 최초 가격
+  const [minPrice, setMinPrice] = useState<number>(0); // 최소 가격
+  const [maxPrice, setMaxPrice] = useState<number>(0); // 최대 가격
+  const [ticketQuantity, setticketQuantity] = useState<number>(0); // 재고 수, 좌석 수
+  const [ticketOpenDate, setTicketOpenDate] = useState<string>(
+    '2023-08-31T11:00:00Z'
+  ); //
+  const [SalesEndTime, setSalesEndTime] = useState<string>(
+    '2023-10-31T11:00:00Z'
+  ); //
   const router = useRouter();
-  const SendEventInfo = () => {
-    alert(EventName + FirstPrice + MinPrice + InventoryNumber);
-    router.push('/admin');
-  };
 
+  const SendEventInfo = async () => {
+    try {
+      await axios({
+        method: 'post',
+        data: {
+          name: eventName,
+          description: '',
+          start_price: startPrice,
+          min_price: minPrice,
+          max_price: maxPrice,
+          quantity: ticketQuantity,
+          ticket_open_date: ticketOpenDate,
+          event_date: SalesEndTime,
+        },
+        url: `${serverUrl}/admin/events/new`,
+      }).then((response) => {
+        alert('성공적으로 이벤트가 등록되었습니다.');
+        router.push('/admin');
+        console.log(response);
+      });
+    } catch (response: any) {
+      alert(response);
+    }
+  };
   return (
     <div
       className="d-flex justify-content-center"
@@ -38,7 +65,7 @@ export default function AddEvent() {
             type="text"
             className="form-control"
             placeholder="Enter Event Name"
-            value={EventName}
+            value={eventName}
             onChange={(e) => setEventName(e.target.value)}
           />
         </div>
@@ -49,8 +76,8 @@ export default function AddEvent() {
             type="number"
             className="form-control"
             placeholder="Enter Event Name"
-            value={FirstPrice}
-            onChange={(e) => setFirstPrice(e.target.valueAsNumber)}
+            value={startPrice}
+            onChange={(e) => setStartPrice(e.target.valueAsNumber)}
           />
         </div>
         {/* 이벤트 티켓 1개당 최저가격 설정 */}
@@ -60,7 +87,7 @@ export default function AddEvent() {
             type="number"
             className="form-control"
             placeholder="Enter Event Name"
-            value={MinPrice}
+            value={minPrice}
             onChange={(e) => setMinPrice(e.target.valueAsNumber)}
           />
         </div>
@@ -71,7 +98,7 @@ export default function AddEvent() {
             type="number"
             className="form-control"
             placeholder="Enter Event Name"
-            value={MaxPrice}
+            value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.valueAsNumber)}
           />
         </div>
@@ -82,8 +109,8 @@ export default function AddEvent() {
             type="number"
             className="form-control"
             placeholder="Enter Event Name"
-            value={InventoryNumber}
-            onChange={(e) => setInventoryNumber(e.target.valueAsNumber)}
+            value={ticketQuantity}
+            onChange={(e) => setticketQuantity(e.target.valueAsNumber)}
           />
         </div>
         {/* 핀메 시작 시간 */}
@@ -93,8 +120,8 @@ export default function AddEvent() {
             type="text"
             className="form-control"
             placeholder="yyyy-mm-dd-tt-mm"
-            value={SalesStartTime}
-            onChange={(e) => setSalesStartTime(e.target.value)}
+            value={ticketOpenDate}
+            onChange={(e) => setTicketOpenDate(e.target.value)}
           />
         </div>
         {/* 핀메 종료 시간 */}
