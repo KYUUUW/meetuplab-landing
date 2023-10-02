@@ -57,7 +57,7 @@
   "features": {
     "title": "밋업랩에서 하는 일들",
     "subtitle": "밋업랩은 다양한 분야의 전문가들이 모여 Make Up 합니다",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+    "description": "",
     "items": [
       {
         "name": "개발자 협업",
